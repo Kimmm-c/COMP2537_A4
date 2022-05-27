@@ -1,0 +1,197 @@
+*{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1{
+    font-family: 'Odibee Sans', cursive;
+    font-size: 55px;
+    color:rgb(224, 121, 121);
+    text-align: center;
+    margin: 20px;
+}
+
+body{
+    margin: 0px;
+    /* background-color: rgb(255, 242, 246); */
+    background-image: url("./pokebg.png");
+    background-size: cover;
+}
+
+#navbar{
+    background-color: rgb(224, 121, 121);
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#navbar div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#navbar a:hover{
+    box-shadow: 2px 2px 2px 2px rgb(248, 205, 205);
+    padding: 3px;
+    border-radius: 0.5rem;
+}
+
+#last{
+    margin-left: auto;
+}
+
+#search_section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#search_section div{
+    margin-bottom: 10px;
+}
+
+#pokemons_display, #display_history{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+    
+}
+
+.pokemon{
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    background-color: rgb(224, 121, 121);
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+img{
+    width: 100%;
+}
+
+.pokemon a, h4{
+    text-align: center;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+}
+
+button{
+    background: rgb(224, 121, 121);
+    border-radius: 0.5rem;
+    border: none;
+    color:white;
+    width: 100px;
+}
+
+#recent_or_history{
+    display: flex;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+#recent{
+    width: 68%;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 252, 242);
+    height: 500px;
+    overflow:auto;
+    margin-right: 10px;
+    background-image:linear-gradient(rgb(248, 205, 205), rgb(255, 252, 242));
+    padding: 10px;
+}
+
+#history{
+    width: 30%;
+    text-align: center;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 252, 242);
+    background-image:linear-gradient(rgb(248, 205, 205), rgb(255, 252, 242));
+    height: 500px;
+    overflow:auto;
+    padding: 10px;
+}
+
+.retrieve_history{
+    background-color: rgb(129, 129, 129);
+    margin-bottom: 3px;
+}
+
+.remove_history_tag{
+    width:fit-content;
+    background-color: transparent;
+    color: black;
+    border: 0.01px solid black;
+}
+
+input{
+    border-radius: 0.5rem;
+    border-width: 0.01px;
+}
+
+.add{
+    border:none;
+    border-radius: 0.5rem;
+    background-color: rgb(68, 160, 68);
+    color: white;
+    padding: 3px;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    margin-top: 10px;
+}
+
+.add:hover{
+    box-shadow: 2px 2px 2px 1px rgb(219, 205, 158);
+}
+@media screen and (max-width: 600px){
+    #recent_or_history{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #recent, #history{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 400px){
+    #recent_or_history{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #recent, #history{
+        width: 100%;
+    }
+
+    .pokemon{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px){
+    #navbar div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #last{
+        margin-left: 0;
+    }
+    #body{
+        margin: 0px;
+    }
+}

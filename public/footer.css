@@ -1,0 +1,17 @@
+i{
+    color: rgb(255, 234, 234);
+    margin-right: 20px;
+}
+
+#footerPlaceholder{
+    background-color:rgb(224, 121, 121);
+    padding: 10px;
+    /* position: fixed;
+    bottom: 0%;
+    width: 100%; */
+}
+
+.flexfooter{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="cart.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="shoppingCart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Pokemon</h1>
+        <div id="navbar">
+            <div>
+                <a href="/home">Home</a>
+                <!-- <a href="/pokemon_profile">Pokemon</a> -->
+                <a href="/search">Search</a>
+                <a href="/shoppingCart">Shopping Cart</a>
+                <a href="/user_profile">Profile</a>
+                <a href="/logout">Log out</a>
+                <div id="last">
+                    <a href="/login">Login</a>
+                    <a href="/register">Sign up</a>
+                </div>
+                <!-- <a href="/logout" id="last">Log out</a> -->
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="cart_or_history">
+            <div id="buttons">
+                <button id="cart">Shopping Cart</button>
+                |
+                <button id="history">Order History</button>
+            </div> 
+            <div id="pokemons_display">
+
+            </div>
+             
+        </div>
+        <div id="checkout_div">
+            <p id="pay">Pending Amount</p>
+            <hr>
+            <div id="payment">
+
+            </div>
+            <div><button id="checkout">Checkout</button></div>
+
+        </div>
+
+    </main>
+    <nav id="footerPlaceholder"></nav>
+
+    <script src="./footer.js"></script>
+</body>
+
+</html>

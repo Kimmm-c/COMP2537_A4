@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="login_signup.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="login.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Pokemon</h1>
+        <div id="navbar">
+            <div>
+                <a href="/home">Home</a>
+                <!-- <a href="/pokemon_profile">Pokemon</a> -->
+                <a href="/search">Search</a>
+                <a href="/shoppingCart">Shopping Cart</a>
+                <a href="/user_profile">Profile</a>
+                <a href="/logout">Log out</a>
+                <div id="last">
+                    <a href="/login">Login</a>
+                    <a href="/register">Sign up</a>
+                </div>
+                <!-- <a href="/logout" id="last">Log out</a> -->
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="top">
+            <h3> Sign in </h3>
+            <p>Please login to continue.</p>
+        </div>
+        <div id="form">
+            <p>Email</p>
+            <input type='email' name='email' placeholder='Email' required id="email">
+            <p>Password</p>
+            <input type='password' name='password' placeholder='Password' required id="password"><br>
+            <button>Log in</button>
+        </div>
+        <div id="bottom">
+            <p>Don't have account yet?</p>
+            <a href='/register'>Register.</a>
+        </div>
+
+    </main>
+    <nav id="footerPlaceholder"></nav>
+
+    <script src="./footer.js"></script>
+</body>
+
+</html>

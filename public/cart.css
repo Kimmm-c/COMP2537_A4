@@ -1,0 +1,178 @@
+*{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Odibee Sans', cursive; */
+}
+
+body{
+    /* font-size: 17px; */
+    margin: 0px;
+    /* background-color: rgb(255, 242, 246); */
+    background-image: url("./pokebg.png");
+    background-size: cover;
+}
+
+h1{
+    font-family: 'Odibee Sans', cursive;
+    font-size: 55px;
+    color:rgb(224, 121, 121);
+    text-align: center;
+    margin: 20px;
+}
+
+#navbar{
+    background-color: rgb(224, 121, 121);
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#navbar div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#navbar a:hover{
+    box-shadow: 2px 2px 2px 2px rgb(248, 205, 205);
+    padding: 3px;
+    border-radius: 0.5rem;
+}
+
+#last{
+    margin-left: auto;
+}
+
+main{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#cart_or_history, #checkout_div{
+    border-radius: 0.5rem;
+    height: 500px;
+    overflow: auto;
+    background-color: rgb(255, 252, 242);
+    padding: 10px;
+}
+
+#cart_or_history{
+    width: 68%;
+    margin-right: 10px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
+}
+
+#checkout_div{
+    width: 29%;
+}
+
+#buttons{
+    position: relative;
+    left: 30%;
+}
+
+h5{
+    margin-bottom: 3px;
+}
+
+#cart, #history{
+    border:none;
+    background-color: transparent;
+}
+
+#cart{
+    font-weight:bold;
+    text-decoration: underline;
+}
+
+#pay{
+    margin: 0px;
+    font-weight: bold;
+}
+
+#checkout{
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgb(68, 160, 68);
+    color: white;
+    padding: 3px;
+    width: 100%;
+    margin: 10px 0px 10px 0px;
+
+}
+
+#checkout:hover {
+    box-shadow: 2px 2px 2px 1px rgb(219, 205, 158);
+}
+
+.pokemon{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-image:linear-gradient(rgb(224, 121, 121),rgb(248, 205, 205));
+    border-radius: 0.5rem;
+    margin: 10px;
+}
+
+.image{
+    width: 100px;
+    height: 100px;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 252, 242);
+    margin-right: 10px 
+}
+
+img{
+    width: 100%;
+}
+
+.info{
+    color: white;
+}
+
+.remove{
+    border: none;
+    border-radius: 0.5rem;
+    background-color: rgb(190, 81, 81);
+    color: white;
+    padding: 3px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 480px){
+    #navbar div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #last{
+        margin-left: 0;
+    }
+    #body{
+        margin: 0px;
+        background-size: contain;
+    }
+
+    main{
+        flex-direction: column;
+    }
+
+    #cart_or_history, #checkout_div{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    #buttons{
+        text-align:center;
+        position:initial;
+    }
+}

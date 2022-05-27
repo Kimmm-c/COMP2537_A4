@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style_search.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="search.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Pokemon</h1>
+        <div id="navbar">
+            <div>
+                <a href="/home">Home</a>
+                <!-- <a href="/pokemon_profile">Pokemon</a> -->
+                <a href="/search">Search</a>
+                <a href="/shoppingCart">Shopping Cart</a>
+                <a href="/user_profile">Profile</a>
+                <a href="/logout">Log out</a>
+                <div id="last">
+                    <a href="/login">Login</a>
+                    <a href="/register">Sign up</a>
+                </div>
+                <!-- <a href="/logout" id="last">Log out</a> -->
+            </div>
+        </div>
+        <div id="search_section">
+            <div id="search_by">
+                <label for="search_filter">Search by</label><br>
+                <select name="filter" id="filter">
+                    <option value="name">Name</option>
+                    <option value="dex_num">Pokedex</option>
+                    <option value="habitat">Habitat</option>
+                    <option value="type">Type</option>
+                </select>
+            </div>
+            <div id="habitats" style="display: none">
+                <label for="habitat_search">Habitat</label><br>
+                <select name="habitat" id="habitat">
+                    <option value="1">Cave</option>
+                    <option value="2">Forest</option>
+                    <option value="3">Grassland</option>
+                    <option value="4">Mountain</option>
+                    <option value="5">Rare</option>
+                    <option value="6">Rough-terrain</option>
+                    <option value="7">Sea</option>
+                    <option value="8">Urban</option>
+                    <option value="9">Waters-edge</option>
+                </select>
+            </div>
+
+            <div id="types" style="display: none">
+                <label for="type_search">Type</label><br>
+                <select name="type" id="type">
+                    <option value="1">normal</option>
+                    <option value="2">fighting</option>
+                    <option value="3">flying</option>
+                    <option value="4">poison</option>
+                    <option value="5">ground</option>
+                    <option value="6">rock</option>
+                    <option value="7">bug</option>
+                    <option value="8">ghost</option>
+                    <option value="9">steel</option>
+                    <option value="10">fire</option>
+                    <option value="11">water</option>
+                    <option value="12">grass</option>
+                    <option value="13">electric</option>
+                    <option value="14">psychic</option>
+                    <option value="15">ice</option>
+                    <option value="16">dragon</option>
+                    <option value="17">dark</option>
+                    <option value="18">fairy</option>
+                    <option value="10001">unknown</option>
+                    <option value="10002">shadow</option>
+                </select>
+            </div>
+
+            <div id="search">
+                <label for="search_bar">Enter Pokemon name <b>Or</b> Dex# (1-28)</label><br>
+                <input type="text" id="search_keyword">
+            </div>
+            <button id="submit">Submit</button>
+        </div>
+
+    </header>
+    <div id="recent_or_history">
+        <div id="recent">
+            <h3>Recent</h3>
+            <main id="pokemons_display">
+
+            </main>
+        </div>
+        <div id="history">
+            <h3>History</h3>
+            <div id="display_history">
+
+            </div>
+        </div>
+
+    </div>
+    <nav id="footerPlaceholder"></nav>
+
+    <script src="./footer.js"></script>
+</body>
+
+</html>

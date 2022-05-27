@@ -1,0 +1,134 @@
+*{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Odibee Sans', cursive; */
+}
+
+body{
+    margin: 0px;
+    background-color: rgb(255, 242, 246);
+    background-image: url("./pokebg.png");
+    background-size: cover;
+    font-size: 17px;
+}
+
+h1{
+    font-family: 'Odibee Sans', cursive;
+    font-size: 55px;
+    color:rgb(224, 121, 121);
+    text-align: center;
+    margin: 20px;
+}
+
+#navbar{
+    background-color: rgb(224, 121, 121);
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#navbar div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#navbar a:hover{
+    box-shadow: 2px 2px 2px 2px rgb(248, 205, 205);
+    padding: 3px;
+    border-radius: 0.5rem;
+}
+
+#last{
+    margin-left: auto;
+}
+
+main{
+    padding: 10px;
+    color: rgb(48, 48, 48);
+}
+
+#pokemons_display{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.pokemon{
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    /* background-color:rgb(255, 252, 242); */
+    background-image:linear-gradient(rgb(248, 205, 205), rgb(255, 252, 242));
+    border-radius: 0.5rem;
+    margin-bottom: 10px;
+    padding: 20px 0px 20px 0px;
+}
+
+img{
+    width: 100%;
+}
+
+.pokemon a{
+    text-align: center;
+    text-decoration: none;
+    color: rgb(48, 48, 48);
+}
+
+footer{
+    text-align: center;
+}
+
+.cart{
+    position: relative;
+    left: 20%;
+    margin-top: 10px;
+}
+
+.quantity{
+    width: 20%;
+    margin-right: 5px;
+}
+
+button{
+    border:none;
+    border-radius: 0.5rem;
+    background-color: rgb(68, 160, 68);
+    color: white;
+    padding: 3px;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    margin-top: 10px;
+    
+}
+
+button:hover {
+    box-shadow: 2px 2px 2px 1px rgb(219, 205, 158);
+}
+
+@media screen and (max-width: 480px){
+    .pokemon{
+        width: 100%;
+    }
+    #navbar div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #last{
+        margin-left: 0;
+    }
+    #body{
+        margin: 0px;
+    }
+}

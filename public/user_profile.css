@@ -1,0 +1,118 @@
+*{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+body{
+    margin: 0px;
+    /* background-color: rgb(255, 242, 246); */
+    background-image: url("./pokebg.png");
+    background-size: cover;
+}
+
+h1{
+    font-family: 'Odibee Sans', cursive;
+    font-size: 55px;
+    color:rgb(224, 121, 121);
+    text-align: center;
+    margin: 20px;
+}
+
+#navbar{
+    background-color: rgb(224, 121, 121);
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#navbar div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#navbar a:hover{
+    box-shadow: 2px 2px 2px 2px rgb(248, 205, 205);
+    padding: 3px;
+    border-radius: 0.5rem;
+}
+
+#last{
+    margin-left: auto;
+}
+
+#wrapper{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#profile, #timeline_display{
+    height: 500px;
+    /* margin-right: 10px; */
+    border-radius: 0.5rem;
+    padding: 20px;
+    overflow:auto;
+    box-shadow: 2px 2px 2px 2px rgb(197, 182, 129);
+}
+
+#profile{
+    width: 29%;
+    background-image:linear-gradient(rgb(158, 209, 196),rgb(248, 205, 205));
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#timeline_display{
+    width: 68%;
+}
+
+#info{
+    color: rgb(141, 78, 78);
+    text-align: center;
+}
+
+#profile_pic{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+button{
+    background: rgb(224, 121, 121);
+    border-radius: 0.5rem;
+    border: none;
+    color:white;
+    margin: 5px 0px 0px 3px;
+}
+
+@media screen and (max-width: 480px){
+    #navbar div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #last{
+        margin-left: 0;
+    }
+    #body{
+        margin: 0px;
+    }
+
+    #profile, #timeline_display{
+        width: 100%;  
+        margin-bottom: 20px;
+    } 
+}
