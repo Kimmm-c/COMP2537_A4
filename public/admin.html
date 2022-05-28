@@ -39,15 +39,17 @@
             <div id="add_form" style="display:none">
                 <p>Add this user as:</p>
                 <input type="radio" value="regular" class="radio_buttons" name="user_type">
-                <label>Regular User</label>
+                <label>Regular</label>
                 <input type="radio" value="admin" class="radio_buttons" name="user_type">
                 <label>Admin</label>
                 <br>
-                <input type="text" id="first" placeholder="First name"><br>
-                <input type="text" id="lastname" placeholder="Last name"><br>
-                <input type="text" id="email" placeholder="Email address"><br>
-                <input type="text" id="password" placeholder="Password"><br>
-                
+                <input type="first" id="first" placeholder="First name"><br>
+                <input type="last" id="lastname" placeholder="Last name"><br>
+                <input type="email" id="email" placeholder="Email address"><br>
+                <input type="password" id="password" placeholder="Password"><br>
+                <p id="error_radio" style="display:none">Please choose type of user you want to add.</p>
+                <p id="error_input" style="display:none">Please enter all the required fields.</p>
+                <p id="error_exist" style="display:none">User already exists.</p>
                 <button id="submit_user">Add User</button>
             </div>
         </div>

@@ -8,7 +8,8 @@ function create_account() {
                 first: $("#firstname").val(),
                 last: $("#lastname").val(),
                 email: $("#email").val(),
-                password: $("#password").val()
+                password: $("#password").val(),
+                title: 'regular'
             },
             (message) => {
                 console.log(message)

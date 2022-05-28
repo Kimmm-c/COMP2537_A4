@@ -12,16 +12,18 @@ function fetch_users(){
                 table += `<tr>
                 <td>Name: ${users[count].first} ${users[count].last}<br>
                 Email: ${users[count].email}<br>
-                Items in cart: ${users[count].shoppingCart.lengthlength}<br>
-                Pending amount: ${users[count].price}</td>
+                Items in cart: ${users[count].shoppingCart.length}<br>
+                Pending amount: ${users[count].price}<br>
+                Title: ${users[count].title}</td>
                 <td><button class='edit' id=${users[count]['_id']}>Edit</button></td>
               </tr>`
             }else{
                 table += `<tr>
                 <td>Name: ${users[count].first} ${users[count].last}<br>
                 Email: ${users[count].email}<br>
-                Items in cart: ${users[count].shoppingCart.lengthlength}<br>
-                Pending amount: ${users[count].price}</td>
+                Items in cart: ${users[count].shoppingCart.length}<br>
+                Pending amount: ${users[count].price}<br>
+                Title: ${users[count].title}</td>
                 <td><button class='edit' id=${users[count]['_id']}>Edit</button> <button class='delete' data=${users[count]['_id']}>Delete</button> </td>
               </tr>`
             }
@@ -55,7 +57,34 @@ function toggle_form(){
 function add_user(){
     //console.log($("#first").val(), $("#lastname").val(), $("#email").val())
     if (!$("#first").val() || !$("#lastname").val() || !$("#email").val() || !$("#password").val()){
-        console.log('missing field')
+        //console.log('missing field')
+        $("#error_radio").css("display", 'none');
+        $("#error_exist").css("display", 'none');
+        $("#error_input").css("display", '');
+    }else if(!$("input[name='user_type']:checked").val()){
+        //console.log('choose type')
+        $("#error_radio").css("display", '');
+        $("#error_input").css("display", 'none');
+        $("#error_exist").css("display", 'none');
+    }else{
+        //console.log($('input[name="user_type"]:checked').val())
+        $.post('/register',
+        {
+            first: $("#first").val(),
+            last: $("#lastname").val(),
+            email: $("#email").val(),
+            password: $("#password").val(),
+            title: $('input[name="user_type"]:checked').val()
+        },
+        (message) => {
+            if(message == 'exist'){
+                $("#error_exist").css('display', '');
+                $("#error_radio").css("display", 'none');
+                $("#error_input").css("display", 'none');
+            }else if(message == "success"){
+                location.reload();
+            }
+        })
     }
 }
 

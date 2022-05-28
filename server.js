@@ -34,6 +34,7 @@ const userSchema = new mongoose.Schema({
     shoppingCart: Array,
     price: Number,
     orderHistory: Array,
+    title: String,
     timeline: [
         {
             activity: String,
@@ -231,6 +232,7 @@ app.delete('/remove_item/:data/:price', (req, res) =>{
 app.get('/admin', admin, (req, res) => {
     res.sendFile(path.join(__dirname, 'public/admin.html'))
 })
+
 app.get('/get_all_users', (req, res) => {
     User.find({}, (err, users) => {
         err ? console.log(err) : res.send(users)
@@ -243,4 +245,5 @@ app.delete('/delete_user', (req, res) => {
         err ? console.log(err) : res.send('deleted')
     })
 })
+
 app.use(express.static("./public"))

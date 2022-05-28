@@ -30,7 +30,7 @@ function insert_timeline(filter){
     formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     console.log(filter);
     $.ajax({
-        url: `https://fathomless-forest-63849.herokuapp.com/add_timeline`,
+        url: `/add_timeline`,
         type: "post",
         data: {
             activity: `You searched for pokemon by ${filter}`,
@@ -143,7 +143,7 @@ function add_to_cart() {
     // console.log($(this).attr("data"))
     //console.log($(this).attr("name"))
     $.ajax({
-        url: `https://fathomless-forest-63849.herokuapp.com/add_to_cart`,
+        url: `/add_to_cart`,
         type: "put",
         data: {
             poke_name: $(this).attr("name"),
