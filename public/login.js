@@ -1,19 +1,25 @@
-function process_auth(){
-    $.post(`https://fathomless-forest-63849.herokuapp.com/login`,
-    {
-        email: $("#email").val(),
-        password: $("#password").val()
-    },
-    (message)=>{
-        if(message == "fail"){
-            location.reload();
-        }else{
-            window.location.href = "user_profile.html"
-        }
-    })
+function process_auth() {
+    $.post(`/login`,
+        {
+            email: $("#email").val(),
+            password: $("#password").val()
+        },
+        (user) => {
+            if (user == "fail") {
+                location.reload();
+            } else {
+                console.log(user)
+                if (user.title == "admin") {
+                    // console.log('admin')
+                    window.location.href = "admin.html"
+                } else {
+                    window.location.href = "user_profile.html"
+                }
+            }
+        })
 }
 
-function setup(){
+function setup() {
     $("button").click(process_auth);
 }
 

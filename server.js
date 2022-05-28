@@ -58,6 +58,10 @@ function authentication(req, res, next) {
     req.session.authenticated ? next() : res.redirect(`/login`);
 }
 
+function admin(req, res, next) {
+    req.session.admin ? next() : res.redirect(`/user_profile`);
+}
+
 // app.get('/', authentication, (req, res) => {
 //     //console.log('running')
 //     //console.log(req.session.authenticated)
@@ -104,8 +108,11 @@ app.post('/login', (req, res) => {
             // console.log(user)
             req.session.authenticated = true;
             req.session.user = user[0];
+            if(user[0].title == "admin"){
+                req.session.admin = true;
+            }
             //console.log(req.session)
-            res.send('')
+            res.send(user[0])
         } else {
             // console.log(user.length)
             res.send('fail')
@@ -218,6 +225,12 @@ app.put('/update_likes/:data', (req, res) => {
 app.delete('/remove_item/:data/:price', (req, res) =>{
     User.findByIdAndUpdate({_id: req.session.user["_id"]}, {$pull: {'shoppingCart': req.params.data}, $inc: {'price': -req.params.price}}, (err, user) =>{
         err ? console.log(err) : res.send(`item removed`)
+    })
+})
+
+app.get('/get_all_users', (req, res) => {
+    User.find({}, (err, users) => {
+        err ? console.log(err) : res.send(users)
     })
 })
 
