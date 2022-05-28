@@ -59,7 +59,7 @@ function authentication(req, res, next) {
 }
 
 function admin(req, res, next) {
-    req.session.admin ? next() : res.redirect(`/user_profile`);
+    req.session.user.title == 'admin' ? next() : res.redirect(`/user_profile`);
 }
 
 // app.get('/', authentication, (req, res) => {
@@ -108,10 +108,10 @@ app.post('/login', (req, res) => {
             // console.log(user)
             req.session.authenticated = true;
             req.session.user = user[0];
-            if(user[0].title == "admin"){
-                req.session.admin = true;
-            }
-            //console.log(req.session)
+            // if(user[0].title == "admin"){
+            //     req.session.admin = true;
+            // }
+            console.log(req.session)
             res.send(user[0])
         } else {
             // console.log(user.length)
@@ -228,6 +228,9 @@ app.delete('/remove_item/:data/:price', (req, res) =>{
     })
 })
 
+app.get('/admin', admin, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/admin.html'))
+})
 app.get('/get_all_users', (req, res) => {
     User.find({}, (err, users) => {
         err ? console.log(err) : res.send(users)

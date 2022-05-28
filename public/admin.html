@@ -4,7 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="admin.css">
@@ -33,6 +33,24 @@
         </div>
     </header>
     <main>
+        <div>
+            <a href='/user_profile'>Back to Profile</a>
+            <button id="add_user">Add User</button>
+            <div id="add_form" style="display:none">
+                <p>Add this user as:</p>
+                <input type="radio" value="regular" class="radio_buttons" name="user_type">
+                <label>Regular User</label>
+                <input type="radio" value="admin" class="radio_buttons" name="user_type">
+                <label>Admin</label>
+                <br>
+                <input type="text" id="first" placeholder="First name"><br>
+                <input type="text" id="lastname" placeholder="Last name"><br>
+                <input type="text" id="email" placeholder="Email address"><br>
+                <input type="text" id="password" placeholder="Password"><br>
+                
+                <button id="submit_user">Add User</button>
+            </div>
+        </div>
         <div id="users_display">
 
         </div>

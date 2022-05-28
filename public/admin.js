@@ -44,9 +44,26 @@ function delete_user(){
     })
 }
 
+function toggle_form(){
+    if($("#add_form").css("display") == "none"){
+        $("#add_form").css("display", '');
+    }else{
+        $("#add_form").css("display", 'none');
+    }
+}
+
+function add_user(){
+    //console.log($("#first").val(), $("#lastname").val(), $("#email").val())
+    if (!$("#first").val() || !$("#lastname").val() || !$("#email").val() || !$("#password").val()){
+        console.log('missing field')
+    }
+}
+
 function setup(){
     fetch_users();
     $('body').on('click', '.delete', delete_user);
+    $("#add_user").click(toggle_form);
+    $("#submit_user").click(add_user);
 }
 
 $(document).ready(setup);
