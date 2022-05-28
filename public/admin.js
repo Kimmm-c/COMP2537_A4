@@ -31,8 +31,22 @@ function fetch_users(){
     })
 }
 
+function delete_user(){
+    $.ajax({
+        url: `/delete_user`,
+        type: 'delete',
+        data: {
+            id: $(this).attr("data")
+        },
+        success: (message) => {
+            location.reload();
+        }
+    })
+}
+
 function setup(){
     fetch_users();
+    $('body').on('click', '.delete', delete_user);
 }
 
 $(document).ready(setup);

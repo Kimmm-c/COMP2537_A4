@@ -234,4 +234,10 @@ app.get('/get_all_users', (req, res) => {
     })
 })
 
+app.delete('/delete_user', (req, res) => {
+    //console.log('delete called')
+    User.findByIdAndRemove({_id: req.body.id}, (err, result) => {
+        err ? console.log(err) : res.send('deleted')
+    })
+})
 app.use(express.static("./public"))
