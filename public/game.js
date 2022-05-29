@@ -99,11 +99,11 @@ function set_timer() {
     difficulty = select1.options[select1.selectedIndex].value;
     // console.log(difficulty);
     if (difficulty == "easy") {
-        time = 0.25 * 60
+        time = 5 * 60
     } else if (difficulty == "medium") {
         time = 3 * 60
     } else {
-        time = 2 * 60
+        time = 0.25 * 60
     }
     start_countdown = setInterval(countdown, 1000);
 }

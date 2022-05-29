@@ -56,6 +56,10 @@ button{
     margin: 5px 0px 0px 3px;
 }
 
+button:hover, #back:hover{
+    background: rgb(160, 51, 51);
+}
+
 #users_display{
     width: 80%;
     height: 500px;
@@ -125,5 +129,9 @@ button{
     #profile, #timeline_display{
         width: 100%;  
         margin-bottom: 20px;
+    }
+
+    #add_form, #edit_log, #users_display{
+        width: 90%;
     } 
 }

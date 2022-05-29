@@ -178,3 +178,33 @@ main{
 #game_events p{
     margin: 5px 10px 5px 10px;
 }
+
+@media screen and (max-width: 480px){
+    #navbar div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #last{
+        margin-left: 0;
+    }
+    #body{
+        margin: 0px;
+    }
+
+    #game_events, #pokemons_display{
+        width: 97%;
+        height: 300px;
+        margin: auto;
+    }
+
+    #game_board{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    img{
+        width: 100%;
+    }
+}
