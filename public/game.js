@@ -1,0 +1,173 @@
+table = ``
+firstCard = undefined
+secondCard = undefined
+firstCardHasBeenFlipped = false
+time = null;
+dimension = null
+match_count = null
+start_countdown = null
+
+function display_options() {
+    select = document.getElementById("grid");
+    grid = select.options[select.selectedIndex].value;
+    //console.log(grid);
+    if (grid == '22') {
+        $("#poke_num").empty();
+        $("#poke_num").append(`<label for="pokemon_num">Number of pokemons</label><br>
+        <select name="pokemon_num" id="pokemon_num">
+            <option value="2" >2</option>
+            </select>`)
+    } else if (grid == '43') {
+        $("#poke_num").empty();
+        $("#poke_num").append(`<label for="pokemon_num">Number of pokemons</label><br>
+        <select name="pokemon_num" id="pokemon_num">
+            <option value="2" >2</option>
+            <option value="6">6</option>
+        </select>`)
+    } else if (grid == '64') {
+        $("#poke_num").empty();
+        $("#poke_num").append(`<label for="pokemon_num">Number of pokemons</label><br>
+        <select name="pokemon_num" id="pokemon_num">
+            <option value="2" >2</option>
+            <option value="6">6</option>
+            <option value="12">12</option>
+        </select>`)
+    } else {
+        $("#poke_num").empty();
+    }
+}
+
+async function game_setup() {
+    select = document.getElementById("grid");
+    grid = select.options[select.selectedIndex].value;
+    // console.log(grid);
+    if (grid == "default") {
+        $("#game_setup").append(`<p id="missing_dimension">Please choose a dimension</p>`)
+    } else {
+        $("#pokemons_display").empty();
+        $("#missing_dimension").remove();
+        $("#game_setup").css("display", "none");
+
+        dimension = grid;
+
+        select2 = document.getElementById("pokemon_num");
+        poke_num = select2.options[select2.selectedIndex].value;
+
+        console.log(grid, difficulty, poke_num)
+        poke_list = [];
+        for (count = 0; count < poke_num; count++) {
+            await $.get(`https://pokeapi.co/api/v2/pokemon/${Math.round(Math.random() * (900 - 1) + 1)}`, (pokemon) => {
+                //console.log(pokemon);
+                poke_list.push(pokemon)
+            })
+        }
+        console.log(poke_list)
+        table = ``
+        //console.log(grid[0] * grid[1])
+        id = 1
+        for (count = 0; count < poke_num; count++) {
+            //console.log(poke_list[count].sprites.other["official-artwork"]["front_default"])
+            for (count2 = 0; count2 < grid[0] * grid[1] / poke_num; count2++) {
+                table += `<div class="cards">
+        <img class="front" id=${id} src=${poke_list[count].sprites.other["official-artwork"]["front_default"]}>
+        <img class="back" src="./pokeball.png">
+        </div>`
+                id++
+            }
+        }
+        $("#pokemons_display").append(table);
+        shuffle_divs();
+        $(".cards").css("width", `calc(${(100 / grid[0])}% - 10px)`)
+        set_timer();
+    }
+}
+
+function shuffle_divs() {
+    parent = $("#pokemons_display");
+    divs = parent.children();
+    while (divs.length) {
+        parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+    }
+}
+
+function set_timer() {
+    select1 = document.getElementById("difficulty");
+    difficulty = select1.options[select1.selectedIndex].value;
+    // console.log(difficulty);
+    if (difficulty == "easy") {
+        time = 0.25 * 60
+    } else if (difficulty == "medium") {
+        time = 3 * 60
+    } else {
+        time = 2 * 60
+    }
+    start_countdown = setInterval(countdown, 1000);
+}
+
+function countdown() {
+    if (time >= 0 && match_count != dimension[0] * dimension[1]) {
+        minute = Math.floor(time / 60);
+        second = time % 60;
+        second = second < 10 ? '0' + second : second;
+        $("#timer").text(`${minute}:${second}`);
+        time--
+    } else {
+        if (match_count == dimension[0] * dimension[1]) {
+            //console.log('win')
+            $("#pokemons_display").remove();
+            $("#message").append(`<p>You win!</p>
+            <button class="reset">Play another game</button>`)
+        } else {
+            //console.log('lose')
+            $("#pokemons_display").remove();
+            $("#message").append(`<p>You lose..</p>
+            <button class="reset">Play another game</button>`)
+        }
+        clearInterval(start_countdown)
+    }
+}
+
+function flip_card() {
+    $(this).toggleClass("flip")
+
+    if (!firstCardHasBeenFlipped) {
+        // the first card
+        firstCard = $(this).find(".front")[0]
+        // console.log(firstCard);
+        firstCardHasBeenFlipped = true
+        $(`#${firstCard.id}`).click(false);
+    } else {
+        // this is the 2nd card
+        secondCard = $(this).find(".front")[0]
+        firstCardHasBeenFlipped = false
+        console.log(firstCard, secondCard);
+        // ccheck if we have match!
+        if (
+            $(`#${firstCard.id}`).attr("src") == $(`#${secondCard.id}`).attr("src")) {
+            console.log("a match!");
+            // update the game state
+            // disable clicking events on these cards
+            $(`#${firstCard.id}`).click(false)
+            $(`#${secondCard.id}`).click(false)
+            match_count += 2
+        } else {
+            console.log("not a match");
+            // unflipping
+            setTimeout(() => {
+                $(`#${firstCard.id}`).parent().removeClass("flip")
+                $(`#${secondCard.id}`).parent().removeClass("flip")
+            }, 1000)
+        }
+    }
+}
+
+function setup() {
+    $("#grid").on("change", display_options);
+    $("#start_game").click(game_setup);
+    $("body").on("click", '.cards', flip_card)
+    $("body").on("click", '.reset', () => {
+        location.reload();
+    })
+}
+
+$(document).ready(setup);

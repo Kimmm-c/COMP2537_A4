@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Odibee Sans', cursive; */
+}
+
+body{
+    /* font-size: 17px; */
+    margin: 0px;
+    /* background-color: rgb(255, 242, 246); */
+    background-image: url("./pokebg.png");
+    background-size: cover;
+}
+
+h1{
+    font-family: 'Odibee Sans', cursive;
+    font-size: 55px;
+    color:rgb(224, 121, 121);
+    text-align: center;
+    margin: 20px;
+}
+
+#navbar{
+    background-color: rgb(224, 121, 121);
+    color: white;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#navbar div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#navbar a{
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#navbar a:hover{
+    box-shadow: 2px 2px 2px 2px rgb(248, 205, 205);
+    padding: 3px;
+    border-radius: 0.5rem;
+}
+
+#last{
+    margin-left: auto;
+}
+
+#pokemons_display{
+    /* border: 2px tomato solid; */
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    gap: 10px
+}
+
+.cards{
+    width: calc(33.3% - 10px);
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+img{
+    /* width: 100%; */
+    height: 100%;
+}
+
+.front, .back{
+    position: absolute;
+    /* width: 100%; */
+    /* height: 100px; */
+    backface-visibility: hidden;
+}
+
+.front{
+    transform: rotateY(180deg);
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+main{
+    padding: 20px;
+}
+
+#game_setup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}

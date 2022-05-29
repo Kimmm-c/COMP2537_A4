@@ -88,9 +88,14 @@ function add_user(){
     }
 }
 
+function edit_user(){
+    
+}
+
 function setup(){
     fetch_users();
     $('body').on('click', '.delete', delete_user);
+    $('body').on('click', '.edit', edit_user);
     $("#add_user").click(toggle_form);
     $("#submit_user").click(add_user);
 }

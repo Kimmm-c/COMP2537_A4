@@ -22,6 +22,7 @@
                 <!-- <a href="/pokemon_profile">Pokemon</a> -->
                 <a href="/search">Search</a>
                 <a href="/shoppingCart">Shopping Cart</a>
+                <a href="/game">Game</a>
                 <a href="/user_profile">Profile</a>
                 <a href="/logout">Log out</a>
                 <div id="last">
@@ -33,7 +34,34 @@
         </div>
     </header>
     <main>
+        <div id="game_setup">
+            <div>
+                <label for="difficulty">Choose difficulty level</label><br>
+                <select name="difficulty" id="difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div>
+                <label for="grid">Dimension</label><br>
+                <select name="grid" id="grid">
+                    <option value="default">Choose one</option>
+                    <option value="22">2 x 2</option>
+                    <option value="43">4 x 3</option>
+                    <option value="64">6 x 4</option>
+                </select>
+            </div>
+            <div id="poke_num">
+                
+            </div>
+            <div><button id="start_game">Start Game</button></button></div>
+        </div>
+        <div id="timer"></div>
         <div id="pokemons_display">
+
+        </div>
+        <div id="message">
 
         </div>
     </main>

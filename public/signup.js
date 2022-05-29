@@ -3,7 +3,7 @@ function create_account() {
     if (!$("#firstname").val() || !$("#lastname").val() || !$("#email").val() || !$("#password").val()) {
         $("#form").append('<p id="error">Please enter all the required field</p>')
     } else {
-        $.post('https://fathomless-forest-63849.herokuapp.com/register',
+        $.post('/register',
             {
                 first: $("#firstname").val(),
                 last: $("#lastname").val(),
