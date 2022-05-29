@@ -250,4 +250,10 @@ app.get('/game', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/game.html'))
 })
 
+app.put('/edit_user', (req, res) => {
+    User.findByIdAndUpdate({_id: req.body.id}, {$set: {'first': req.body.first, 'last': req.body.last}}, (err, user) => {
+        err ? console.log(err) : res.send('updated')
+    })
+})
+
 app.use(express.static("./public"))

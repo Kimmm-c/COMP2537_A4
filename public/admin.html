@@ -35,14 +35,20 @@
     </header>
     <main>
         <div>
-            <a href='/user_profile'>Back to Profile</a>
-            <button id="add_user">Add User</button>
+            <div id="top_buttons">
+                <a href='/user_profile' id="back">Back to Profile</a>
+                <button id="add_user">Add User</button>
+            </div>
             <div id="add_form" style="display:none">
-                <p>Add this user as:</p>
-                <input type="radio" value="regular" class="radio_buttons" name="user_type">
-                <label>Regular</label>
-                <input type="radio" value="admin" class="radio_buttons" name="user_type">
-                <label>Admin</label>
+                <h4>Add new User</h4>
+                <div>
+                    <p>Add this user as:</p>
+                    <input type="radio" value="regular" class="radio_buttons" name="user_type">
+                    <label>Regular</label>
+
+                    <input type="radio" value="admin" class="radio_buttons" name="user_type">
+                    <label>Admin</label>
+                </div>
                 <br>
                 <input type="first" id="first" placeholder="First name"><br>
                 <input type="last" id="lastname" placeholder="Last name"><br>
@@ -52,6 +58,14 @@
                 <p id="error_input" style="display:none">Please enter all the required fields.</p>
                 <p id="error_exist" style="display:none">User already exists.</p>
                 <button id="submit_user">Add User</button>
+            </div>
+            <div id="edit_log" style="display:none">
+                <h4>Edit User</h4>
+                <input type="first" id="new_first" placeholder="New first name"><br>
+                <input type="last" id="new_lastname" placeholder="New last name"><br>
+                <p id="missing_input" style="display:none">Please enter all the required fields.</p>
+                <button id="cancel">Cancel</button>
+                <button id="submit_edit">Update</button>
             </div>
         </div>
         <div id="users_display">

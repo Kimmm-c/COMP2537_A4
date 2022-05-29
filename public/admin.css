@@ -47,3 +47,64 @@ h1{
 #last{
     margin-left: auto;
 }
+
+button{
+    background: rgb(224, 121, 121);
+    border-radius: 0.5rem;
+    border: none;
+    color:white;
+    margin: 5px 0px 0px 3px;
+}
+
+#users_display{
+    width: 80%;
+    height: 500px;
+    /* margin-right: 10px; */
+    border-radius: 0.5rem;
+    padding: 20px;
+    overflow:auto;
+    box-shadow: 2px 2px 2px 2px rgb(197, 182, 129);
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#back{
+    text-decoration: none;
+    background: rgb(224, 121, 121);
+    border-radius: 0.5rem;
+    border: none;
+    color:white;
+    padding: 1px 5px 1px 5px;
+    font-size: 10pt;
+}
+
+#top_buttons{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#add_form, #edit_log{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    width: 30%;
+    margin: auto;
+    box-shadow: 2px 2px 2px 2px rgb(224, 121, 121);
+    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    background-image:linear-gradient(rgb(248, 205, 205), rgb(255, 252, 242));
+}
+
+#first, #lastname, #email, #password, #new_first, #new_lastname, #new_email{
+    margin-bottom: 10px;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: rgb(255, 254, 254);
+    padding: 3px;
+    width: 100%;
+}
+
