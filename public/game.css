@@ -56,7 +56,11 @@ h1{
     display: flex;
     flex-wrap: wrap;
     perspective: 1000px;
-    gap: 10px
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-image:linear-gradient(rgb(224, 121, 121),rgb(248, 205, 205));
+    border-radius: 0.5rem;
 }
 
 .cards{
@@ -91,10 +95,46 @@ main{
 }
 
 #game_setup{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center; */
+    text-align: center;
+}
+
+#game_setup div{
+    margin: 3px;
+}
+
+#timer{
+    text-align: center;
+    background-color: rgb(158, 216, 131);
+    color: white;
+    width: 150px;
+    padding: 10px;
+    border-radius: 0.5rem;
+    font-size: 30pt;
+}
+
+#game_section{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     align-items: center;
-    text-align: center;
+}
+
+#start_game{
+    padding: 5px;
+    border-radius: 0.5rem;
+    background-color:rgb(103, 190, 62);
+    color: white;
+    font-size: 15t;
+    border:none;
+    margin-top: 10px;
+}
+
+#start_game:hover{
+    background-color:rgb(71, 131, 43);
 }

@@ -42,6 +42,7 @@ async function game_setup() {
     grid = select.options[select.selectedIndex].value;
     // console.log(grid);
     if (grid == "default") {
+        $("#missing_dimension").remove();
         $("#game_setup").append(`<p id="missing_dimension">Please choose a dimension</p>`)
     } else {
         $("#pokemons_display").empty();
@@ -78,6 +79,7 @@ async function game_setup() {
         $("#pokemons_display").append(table);
         shuffle_divs();
         $(".cards").css("width", `calc(${(100 / grid[0])}% - 10px)`)
+        $("#timer").css("display", "");
         set_timer();
     }
 }
@@ -140,7 +142,7 @@ function flip_card() {
         // this is the 2nd card
         secondCard = $(this).find(".front")[0]
         firstCardHasBeenFlipped = false
-        console.log(firstCard, secondCard);
+        // console.log(firstCard, secondCard);
         // ccheck if we have match!
         if (
             $(`#${firstCard.id}`).attr("src") == $(`#${secondCard.id}`).attr("src")) {
