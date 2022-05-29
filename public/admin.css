@@ -108,3 +108,22 @@ button{
     width: 100%;
 }
 
+@media screen and (max-width: 480px){
+    #navbar div{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    #last{
+        margin-left: 0;
+    }
+    #body{
+        margin: 0px;
+    }
+
+    #profile, #timeline_display{
+        width: 100%;  
+        margin-bottom: 20px;
+    } 
+}

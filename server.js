@@ -246,7 +246,7 @@ app.delete('/delete_user', (req, res) => {
     })
 })
 
-app.get('/game', (req, res) => {
+app.get('/game', authentication, (req, res) => {
     res.sendFile(path.join(__dirname, 'public/game.html'))
 })
 

@@ -25,7 +25,7 @@ function get_pokemons() {
     $("#search_keyword").val("");
 }
 
-function insert_timeline(filter){
+function insert_timeline(filter) {
     now = new Date(Date.now());
     formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     console.log(filter);
@@ -151,7 +151,7 @@ function add_to_cart() {
             price: $(this).attr("data")
         },
         success: (message) => {
-            if(message == "success"){
+            if (message == "success") {
                 console.log('pokemon added')
             }
         }
@@ -203,21 +203,21 @@ function retrieve_history() {
     }
 }
 
-    function remove_history_tag() {
-        $(this).parent().remove();
-    }
+function remove_history_tag() {
+    $(this).parent().remove();
+}
 
-    function setup() {
-        //get_pokemons_habitat();
-        $("button").click(get_pokemons);
-        $("#filter").on("change", display_options);
-        $('#habitat').on('change', get_pokemons_habitat);
-        $('#type').on('change', get_pokemons_type);
-        //$('#region').on('change', get_pokemons_region);
-        $("body").on("click", ".pokemon_name", save_to_storage);
-        $("body").on("click", ".retrieve_history", retrieve_history);
-        $("body").on("click", ".remove_history_tag", remove_history_tag);
-        $("body").on("click", ".add", add_to_cart);
-    }
+function setup() {
+    //get_pokemons_habitat();
+    $("button").click(get_pokemons);
+    $("#filter").on("change", display_options);
+    $('#habitat').on('change', get_pokemons_habitat);
+    $('#type').on('change', get_pokemons_type);
+    //$('#region').on('change', get_pokemons_region);
+    $("body").on("click", ".pokemon_name", save_to_storage);
+    $("body").on("click", ".retrieve_history", retrieve_history);
+    $("body").on("click", ".remove_history_tag", remove_history_tag);
+    $("body").on("click", ".add", add_to_cart);
+}
 
-    $(document).ready(setup);
+$(document).ready(setup);

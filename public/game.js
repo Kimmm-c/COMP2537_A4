@@ -7,6 +7,7 @@ dimension = null
 match_count = null
 start_countdown = null
 
+
 function display_options() {
     select = document.getElementById("grid");
     grid = select.options[select.selectedIndex].value;
@@ -80,6 +81,7 @@ async function game_setup() {
         shuffle_divs();
         $(".cards").css("width", `calc(${(100 / grid[0])}% - 10px)`)
         $("#timer").css("display", "");
+        $("#game_events").css("display", "");
         set_timer();
     }
 }
@@ -116,13 +118,15 @@ function countdown() {
     } else {
         if (match_count == dimension[0] * dimension[1]) {
             //console.log('win')
-            $("#pokemons_display").remove();
-            $("#message").append(`<p>You win!</p>
+            insert_timeline('won')
+            $("#game_board").remove();
+            $("#message").append(`<p style="color: green">You win!</p>
             <button class="reset">Play another game</button>`)
         } else {
             //console.log('lose')
-            $("#pokemons_display").remove();
-            $("#message").append(`<p>You lose..</p>
+            insert_timeline('lost')
+            $("#game_board").remove();
+            $("#message").append(`<p style="color: red">You lose..</p>
             <button class="reset">Play another game</button>`)
         }
         clearInterval(start_countdown)
@@ -146,21 +150,44 @@ function flip_card() {
         // ccheck if we have match!
         if (
             $(`#${firstCard.id}`).attr("src") == $(`#${secondCard.id}`).attr("src")) {
-            console.log("a match!");
+            // console.log("a match!");
             // update the game state
             // disable clicking events on these cards
+            $("#game_events").append(`<p>(${gettime()}): Found a match!</p>`)
             $(`#${firstCard.id}`).click(false)
             $(`#${secondCard.id}`).click(false)
             match_count += 2
         } else {
-            console.log("not a match");
+            // console.log("not a match");
             // unflipping
+            $("#game_events").append(`<p>(${gettime()}): Not a match!</p>`)
             setTimeout(() => {
                 $(`#${firstCard.id}`).parent().removeClass("flip")
                 $(`#${secondCard.id}`).parent().removeClass("flip")
             }, 1000)
         }
     }
+}
+
+function insert_timeline(filter) {
+    now = new Date(Date.now());
+    formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    console.log(filter);
+    $.ajax({
+        url: `/add_timeline`,
+        type: "post",
+        data: {
+            activity: `You ${filter} the Pokemon matching game!`,
+            hits: 0,
+            time: now
+        }
+    })
+}
+
+function gettime(){
+    now = new Date(Date.now());
+    formatted = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+    return formatted
 }
 
 function setup() {
