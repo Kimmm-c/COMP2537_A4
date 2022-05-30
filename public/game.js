@@ -148,6 +148,13 @@ function flip_card() {
         firstCardHasBeenFlipped = false
         // console.log(firstCard, secondCard);
         // ccheck if we have match!
+        
+       
+        $(".cards").prop("disabled", true);
+        setTimeout(()=>{
+            $(".cards").prop("disabled", false);
+        }, 1500)
+        
         if (
             $(`#${firstCard.id}`).attr("src") == $(`#${secondCard.id}`).attr("src")) {
             // console.log("a match!");
@@ -156,6 +163,7 @@ function flip_card() {
             $("#game_events").append(`<p>(${gettime()}): Found a match!</p>`)
             $(`#${firstCard.id}`).click(false)
             $(`#${secondCard.id}`).click(false)
+
             match_count += 2
         } else {
             // console.log("not a match");
